@@ -31,3 +31,18 @@ end
 RSpec.describe Set do
   it_behaves_like "a collection"
 end
+
+# subject equals to Array.new
+RSpec.describe Array do
+  it "should be empty when first created" do
+    expect(subject).to be_empty
+  end
+
+  describe Set do
+    it "should be empty when first created" do
+      # puts subject.inspect
+      # -> <Set: {}>
+      expect(subject).to be_empty
+    end
+  end
+end
