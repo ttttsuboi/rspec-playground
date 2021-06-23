@@ -2,7 +2,9 @@
 #
 # include_examples: include the examples in the current context
 
-class SomeClass; end
+class SomeClass
+  def sample; end
+end
 
 RSpec.shared_examples "some example" do |parameter|
   let(:something) { parameter }
@@ -15,6 +17,11 @@ end
 RSpec.describe SomeClass do
   include_examples "some example", "parameter1" # This test fails
   include_examples "some example", "parameter2"
+
+  it "" do
+    obj = SampleClass.new
+    expect(obj).to receive(:update)
+  end
 end
 
 # Test result here
